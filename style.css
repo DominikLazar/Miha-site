@@ -6,11 +6,13 @@
 }
 
 :root {
-  --primary: #123a63;
-  --secondary: black;
-  --light: white;
+  --primary-100: hsla(210, 69%, 23%, 0.452);
+  --primary-200: hsl(210, 48%, 29%);
+  --primary: hsl(210, 69%, 23%);
+  --secondary: hsl(0, 0%, 0%);
+  --light: hsl(0, 0%, 100%);
+  --background_section_color: hsl(0, 0%, 94%);
   --font1: "Nothing You Could Do", cursive;
-  --background_section_color: #efefef;
 }
 #banner {
   background: url(Images/modro.png);
@@ -56,6 +58,7 @@ body::-webkit-scrollbar-thumb {
 .banner-text h1 {
   font-size: 130px;
   font-family: "Nothing You Could Do", cursive;
+  color: #efefef;
 
   -webkit-background-clip: text;
 }
@@ -65,6 +68,7 @@ body::-webkit-scrollbar-thumb {
   font-weight: 700;
   font-family: "RocknRoll One", sans-serif;
   -webkit-background-clip: text;
+  color: rgb(0, 0, 0);
 }
 
 .container {
@@ -78,7 +82,7 @@ body::-webkit-scrollbar-thumb {
 .hamburger {
   display: block;
   position: relative;
-  z-index: 1;
+  z-index: 10;
 
   user-select: none;
 
@@ -98,7 +102,7 @@ body::-webkit-scrollbar-thumb {
 
   background-color: var(--secondary);
   border-radius: 6px;
-  z-index: 1;
+  z-index: 10;
 
   transform-origin: 0 0;
 
@@ -127,9 +131,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 .menu {
-  display: none;
-  flex: 1 1 50%;
-  justify-content: flex-end;
+  flex: 1;
+  display: grid;
+  z-index: 100;
+  justify-content: center;
 }
 
 .menu a {
@@ -146,12 +151,16 @@ body::-webkit-scrollbar-thumb {
   background-color: var(--secondary);
 }
 
-@media (min-width: 35em) {
+.nav {
+  background: hsl(0 0% 100% /0.1);
+  backdrop-filter: blur(1rem);
+}
+@media (min-width: 770px) {
   .hamburger {
     display: none;
   }
   .menu {
-    display: block;
+    display: flow-root;
   }
   nav {
     position: fixed;
@@ -159,9 +168,15 @@ body::-webkit-scrollbar-thumb {
     left: 0;
     right: 0;
     z-index: 99;
-    background-color: var(--primary);
+
     padding: 1em 5em;
-    border-bottom: 3px solid var(--primary);
+    background: rgba(30, 60, 158, 0.651);
+  }
+  @supports (backdrop-filter: blur(1rem)) {
+    .nav {
+      background: rgba(30, 60, 158, 0.651);
+      backdrop-filter: blur(40rem);
+    }
   }
 }
 
@@ -186,26 +201,43 @@ nav h1 {
   width: 50px;
   margin-top: 1px;
 }
-@media screen and (max-width: 35em) {
+
+@media screen and (max-width: 770px) {
   .banner-text h1 {
     font-size: 44px;
   }
   .banner-btn a {
     margin: 20px auto;
   }
+  .menu {
+    padding-top: -50px;
+  }
   nav {
-    width: 50px;
-    height: 50px;
     position: fixed;
-    border-radius: 30px;
-    top: 20px;
-    right: 20px;
-    background: var(--primary);
-    z-index: 2;
-    transition: 0.5s;
+    inset: -10% 0 0 60%;
+    flex-direction: column;
+    padding: min(30vh, 10rem) 2em;
+    background: rgba(30, 60, 158, 0.651);
+  }
+  .menu h1 {
+    inset: -29% 30% 21% 12%;
+  }
+  .menu a {
+    margin-top: 2em;
+  }
+  .menu a.is-active,
+  .menu a:hover {
+    background-color: var(--secondary);
+  }
+  @supports (backdrop-filter: blur(1rem)) {
+    .nav {
+      background: rgba(30, 60, 158, 0.651);
+      backdrop-filter: blur(40rem);
+    }
   }
   nav h1 {
-    padding-right: 50px;
+    margin-block-end: 25em;
+    padding-right: -1000px;
   }
   .hamburger {
     display: grid;
@@ -213,9 +245,17 @@ nav h1 {
   }
 }
 
-/*--about--*/
+/*--
+////////////////////////////////////////////////////////////////////////////////
+
+                                        WHO AM I
+
+////////////////////////////////////////////////////////////////////////////////
+--*/
 #about {
   padding: 70px 0;
+  z-index: 1;
+  background-color: var(--background_section_color);
 }
 .profile-img img {
   display: flex;
@@ -230,20 +270,27 @@ nav h1 {
   padding-bottom: 70px;
   top: 50px;
   margin-top: 50px;
+  z-index: 1;
 }
 ul {
-  align-self: center;
+  align-self: left;
   text-align: center;
   list-style-type: disc;
 }
 li {
   font-size: xx-large;
 }
+@media screen and (max-width: 770px) {
+  .profile-img img {
+    width: 76vw;
+  }
+}
 
-/*--feature--*/
+/*-- /////////////////////////////////////////////////////////////////////////////////
+                                                      ART
+//////////////////////////////////////////////////////////////////////////////////////--*/
 
 #feature {
-  background: var(--background_section_color);
   width: 100%;
   padding: 70px 0;
 }
@@ -302,12 +349,14 @@ li {
   background: var(--primary);
   z-index: -1;
   transition: 0.5s;
+  background: rgba(80, 109, 204, 0.651);
+  backdrop-filter: blur(1rem);
 }
 .white_button a:hover span {
   width: 100%;
 }
 .white_button a:hover {
-  color: rgb(184, 171, 171);
+  color: rgb(0, 0, 0);
 }
 .feature-box {
   width: 80%;
@@ -331,10 +380,11 @@ li {
   display: flex;
 }
 .art-images img {
-  padding-left: 50px;
+  padding-left: 5vw;
   padding-bottom: 35px;
-  width: 500px;
+  width: 25vw;
   cursor: pointer;
+  display: flex;
 }
 .features h1 {
   text-align: left;
@@ -367,14 +417,23 @@ li {
   .features {
     flex-basis: 100%;
   }
+  .art-images {
+    display: grid;
+  }
   .feature-img {
     flex-basis: 100%;
   }
   .feature-img img {
     width: 100%;
   }
+  .art-images img {
+    width: 70vw;
+    vertical-align: bottom;
+  }
 }
-/*--Iskustva--*/
+/*--/////////////////////////////////////////////////////////////////////////
+                                  Board games
+//////////////////////////////////////////////////////////////////////////--*/
 #Games {
   width: 100%;
   padding: 70px 0;
@@ -506,7 +565,7 @@ div.think-col a {
 }
 
 .user img {
-  width: 100%;
+  width: 59vw;
   border-radius: 3px;
 }
 .think-col:hover {
@@ -516,6 +575,10 @@ div.think-col a {
 @media screen and (max-width: 770px) {
   .think-col {
     flex-basis: 100%;
+  }
+  .user img {
+    width: 100vw;
+    border-radius: 3px;
   }
 }
 
