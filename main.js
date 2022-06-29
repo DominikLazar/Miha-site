@@ -19,6 +19,9 @@ hamburger.addEventListener("click", function () {
     sideNav.style.transform = "translateX(100%)";
   }
 });
+
+window.addEventListener("resize", reportWindowSize);
+
 /*
 menuBtn.onclick = function () {
   if (hamburger.classList == "hamburger is-active") {

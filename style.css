@@ -13,6 +13,8 @@
   --light: hsl(0, 0%, 100%);
   --background_section_color: hsl(0, 0%, 94%);
   --font1: "Nothing You Could Do", cursive;
+  --font2: "Nothing You Could Do", cursive;
+  --font3: "RocknRoll One", sans-serif;
 }
 #banner {
   background: url(Images/modro.png);
@@ -66,7 +68,7 @@ body::-webkit-scrollbar-thumb {
   font-size: 26px;
   font-style: italic;
   font-weight: 700;
-  font-family: "RocknRoll One", sans-serif;
+  font-family: var(--font1);
   -webkit-background-clip: text;
   color: rgb(0, 0, 0);
 }
@@ -111,7 +113,7 @@ body::-webkit-scrollbar-thumb {
 
 .hamburger:hover span:nth-child(2) {
   transform: translateX(10px);
-  background-color: white;
+  background-color: var(--primary-100);
 }
 
 .hamburger.is-active span:nth-child(1) {
@@ -182,7 +184,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 nav h1 {
-  font-family: "Nothing You Could Do", cursive;
+  font-family: var(--font1);
   cursor: pointer;
 }
 
@@ -212,6 +214,7 @@ nav h1 {
   }
   .menu {
     padding-top: -50px;
+    transform: translateY(-26%);
   }
   nav {
     z-index: 1000;
@@ -229,6 +232,7 @@ nav h1 {
   }
   .menu a {
     margin-top: 2em;
+    font-family: var(--font2);
   }
   .menu a.is-active,
   .menu a:hover {
@@ -290,6 +294,7 @@ ul {
 }
 li {
   font-size: xx-large;
+  font-family: var(--font2);
 }
 @media screen and (max-width: 770px) {
   .profile-img img {
@@ -334,6 +339,7 @@ li {
 }
 .title-text h1 {
   font-size: 50px;
+  font-family: var(--font1);
 }
 .white_button {
   margin: 70px auto 0;
@@ -346,10 +352,14 @@ li {
   margin: 0 10px;
   padding: 12px 0;
   color: var(--primary);
-  border: 0.5px solid var(--primary);
+  border: 3px solid var(--primary);
   position: relative;
   z-index: 1;
-  transition: color 0.5s;
+  transition: color 3s ease-in-out;
+  font-family: var(--font2);
+  font-size: 1.5rem;
+  font-weight: bolder;
+  border-radius: 30px;
 }
 .white_button a span {
   width: 0%;
@@ -362,6 +372,7 @@ li {
   transition: 0.5s;
   background: rgba(80, 109, 204, 0.651);
   backdrop-filter: blur(1rem);
+  border-radius: 30px;
 }
 .white_button a:hover span {
   width: 100%;
@@ -402,6 +413,8 @@ li {
   margin-bottom: 10px;
   font-weight: 100;
   color: var(--primary);
+  font-size: 3rem;
+  font-family: var(--font2);
 }
 .features-desc {
   display: flex;
@@ -479,6 +492,8 @@ li {
   opacity: 0;
   transition: 1s;
 }
+.overlay h1 {
+}
 .Single-oasis:hover .overlay {
   opacity: 1;
 }
@@ -500,9 +515,11 @@ li {
   width: 60%;
 }
 .Oasis-desc p {
+  font-family: var(--font1);
   font-size: 24px;
 }
 .Oasis-desc h3 {
+  font-family: var(--font1);
   font-size: 36px;
 }
 .Single-oasis:hover .Oasis-desc {
@@ -620,4 +637,7 @@ div.think-col a {
   color: var(--primary);
   position: relative;
   top: 22px;
+}
+.user p {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
