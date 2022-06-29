@@ -32,13 +32,13 @@
           </div>-->
     </section>
 
-<button class="hamburger" id="hamburger">
+<button class="hamburger" id="hamburger" aria-controls="primary-navigation" aria-expanded="false">
     <span></span>
     <span></span>
     <span></span>
 </button>
-     <nav>
-         <div class="container" id="primary-navigation">
+     <nav data-visible="false" id="primary-navigation">
+         <div class="container"  >
              <h1>Mihael</h1>
              <div class="menu">
                 <a href="#">HOME</a>
@@ -207,25 +207,7 @@
 
 <p>&#169 Copyright by Dominik Lazar</p>
 
-<script>
-    var menuBtn = document.getElementById("menuBtn")
-    var sideNav = document.getElementById("sideNav")
-    var menu = document.getElementById("menu")
 
-sideNav.style.right = "-250px";
-
-    menuBtn.onclick = function(){
-        if(sideNav.style.right=="-250px"){
-            sideNav.style.right ="0";
-            menu.src = "Images/xmark-solid.svg";
-        
-        }
-        else{
-            sideNav.style.right ="-250px";
-            menu.src = "Images/bars-solid.svg"
-        }
-    }
-</script>
 
 
      </body>

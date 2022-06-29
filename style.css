@@ -222,8 +222,11 @@ nav h1 {
     background: rgba(30, 60, 158, 0.651);
     --gap: 2em;
     transform: translateX(100%);
+    transition: 0.5s ease-in;
   }
-
+  .primary-navigation [data-visible="true"] {
+    transform: translateX(0%);
+  }
   .menu a {
     margin-top: 2em;
   }
