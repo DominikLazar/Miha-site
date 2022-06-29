@@ -111,10 +111,10 @@ body::-webkit-scrollbar-thumb {
   transition: 0.4s;
 }
 
-.hamburger:hover span:nth-child(2) {
+/* .hamburger:hover span:nth-child(2) {
   transform: translateX(10px);
   background-color: var(--primary-100);
-}
+} */
 
 .hamburger.is-active span:nth-child(1) {
   transform: translate(0px, -2px) rotate(45deg);
@@ -128,9 +128,9 @@ body::-webkit-scrollbar-thumb {
   transform: translate(-3px, 3px) rotate(-45deg);
 }
 
-.hamburger.is-active:hover span {
+/* .hamburger.is-active:hover span {
   background-color: var(--light);
-}
+} */
 
 .menu {
   flex: 1;
@@ -147,6 +147,7 @@ body::-webkit-scrollbar-thumb {
   transition: 0.4s;
   padding: 8px 16px;
   border-radius: 99px;
+  font-family: var(--font1);
 }
 .menu a.is-active,
 .menu a:hover {
@@ -215,11 +216,13 @@ nav h1 {
   .menu {
     padding-top: -50px;
     transform: translateY(-26%);
+    justify-content: left;
+    align-items: flex-start;
   }
   nav {
     z-index: 1000;
     position: fixed;
-    inset: -10% 0 0 70%;
+    inset: -10% 0 0 40%;
     flex-direction: column;
     padding: min(30vh, 10rem) 2em;
     background: rgba(30, 60, 158, 0.651);
@@ -234,9 +237,13 @@ nav h1 {
     margin-top: 2em;
     font-family: var(--font2);
   }
-  .menu a.is-active,
+  /* .menu a.is-active,
   .menu a:hover {
     background-color: var(--secondary);
+  } */
+  .container {
+    display: flex;
+    justify-content: center;
   }
 
   @supports (backdrop-filter: blur(1rem)) {
