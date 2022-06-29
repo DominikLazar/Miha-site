@@ -17,7 +17,7 @@
   --font3: "RocknRoll One", sans-serif;
 }
 #banner {
-  background: url(Images/modro.jpg);
+  background: url(Images/modro.png);
   background-size: cover;
   background-position: center;
   height: 100vh;
